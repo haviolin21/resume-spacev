@@ -653,7 +653,7 @@ export default function App() {
             <h2>합리적이고 안정적인 운영 구조를 만듭니다</h2>
             <p>언제든지 연락해 주세요. 데이터 기반의 빠른 실행력과 문제 해결력으로 서비스의 효율적인 성장을 돕겠습니다.</p>
             <div className="cta-buttons">
-              <a href={`mailto:${resumeData.personalInfo.email}`} className="btn btn-primary">
+              <a href={`mailto:${resumeData.personalInfo.email}`} className="btn btn-outline-white">
                 <Mail size={18} />
                 <span>이메일 보내기</span>
               </a>
