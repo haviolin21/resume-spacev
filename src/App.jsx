@@ -413,12 +413,11 @@ export default function App() {
                   <ArrowRight size={16} />
                 </a>
                 <a 
-                  href="/하윤택_이력서_스페이스브이.pdf" 
-                  download="하윤택_이력서_스페이스브이.pdf" 
+                  href={`mailto:${resumeData.personalInfo.email}`} 
                   className="btn btn-outline-primary"
                 >
-                  <Download size={16} />
-                  <span>PDF 이력서 받기</span>
+                  <Mail size={16} />
+                  <span>이메일 보내기</span>
                 </a>
               </div>
             </div>
