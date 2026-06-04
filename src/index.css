@@ -1210,9 +1210,11 @@ button {
 
 /* Education Section */
 .edu-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .edu-card {
@@ -1264,9 +1266,6 @@ button {
 }
 
 @media (max-width: 768px) {
-  .edu-grid {
-    grid-template-columns: 1fr;
-  }
   .edu-card {
     padding: 28px;
   }
