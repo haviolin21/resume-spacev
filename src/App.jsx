@@ -11,17 +11,12 @@ import {
   Shield, 
   ShoppingBag, 
   CheckCircle, 
-  ExternalLink,
   ChevronUp,
   X,
-  BookOpen,
   ArrowRight,
-  TrendingUp,
-  Settings,
   Cpu
 } from 'lucide-react';
 
-// Decoded and customized resume database matching User's request
 const resumeData = {
   personalInfo: {
     name: '하윤택',
@@ -36,7 +31,7 @@ const resumeData = {
     title: '자기 소개',
     paragraphs: [
       '저는 운영을 단순 실행 업무가 아닌 서비스의 안정성과 성장을 만드는 구조적 문제 해결 영역으로 바라보며 일해온 운영 전문가입니다.',
-      '위메프, 쿠팡, 중고나라, 김캐디 등 다양한 플랫폼 환경에서 예약, 정산, CS, 결제, 운영 정책 등 서비스 운영 전반을 경험했으며, 운영 프로세스 개선, 자동화, 데이터 분석 프로젝트를 주도했습니다. SQL과 데이터 시각화 도구를 활용해 운영 지표를 분석하고 문제 원인을 구조화하여 실질적인 개선 과제를 도출해 왔습니다.',
+      '위메프, 쿠팡, 중고나라, 김캐디 등 다양한 플랫폼 환경에서 예약, 정산, CS, 결제, 운영 정책 등 서비스 운영 전반을 경험했으며, 운영 프로세스 개선, 자동화, 데이터 분석 프로젝트를 주도했습니다. SQL and 데이터 시각화 도구를 활용해 운영 지표를 분석하고 문제 원인을 구조화하여 실질적인 개선 과제를 도출해 왔습니다.',
       '특히 반복적으로 발생하는 운영 이슈를 구조적으로 해결하는 데 강점이 있습니다. 김캐디에서는 IVR 기반 예약 자동화 프로젝트를 통해 연간 약 2억 원 규모의 운영비를 절감했으며, 중고나라에서는 결제 퍼널 개선을 통해 결제액을 2.4배 성장시키는 성과를 만들었습니다.',
       '또한 개발, PO, 영업 등 다양한 조직과 협업하며 운영 자동화와 서비스 개선 과제를 추진해 왔으며, 데이터와 실행력을 기반으로 고객과 조직 모두가 신뢰할 수 있는 운영 환경을 만들어가고자 합니다.'
     ]
@@ -170,7 +165,7 @@ const resumeData = {
       company: '(주)위메프',
       role: '사원 (판촉운영팀)',
       achievements: [
-        '거래액 상위 20% 핵심 SKU 중심 판촉 전략을 통해 판촉 효율 및 ROI 개선',
+        '거래액 상위 20% 핵심 SKU 중심 상품 운영 전략을 통해 판촉 효율 및 ROI 개선',
         '가격 비교 원부 구축 프로젝트를 수행하여 가격 비교 기능 운영 체계 마련',
         '식품 카테고리 가격 비교 판촉 운영을 통해 카테고리 1위 및 GMV·CM 목표 달성'
       ],
@@ -207,69 +202,72 @@ const resumeData = {
     {
       id: 'ivr-project',
       corp: '김캐디',
-      period: '2025.07 ~ 2025.09',
-      title: '예약 담당자 IVR 자동화 프로젝트',
+      period: '25.07.29 ~ 25.09.21',
+      title: '예약 담당자 IVR 대체',
       summaryBullets: [
         '미운영 시간대 예약 성공률 50% → 70% 개선',
         '연간 약 2억 원 규모 인건비를 월 200만 원 수준의 IVR 운영비로 대체',
         '24시간 예약 대응 체계 구축 및 도입 후 전체 예약 건수 약 5% 증가'
       ],
       modalData: {
-        problem: '예약 담당자 미운영 시간대에는 전화 예약 대응이 불가능해 새벽 시간대 예약 누락, 운영 리스크, 인건비 비효율 문제가 발생하고 있었습니다.',
-        hypothesis: '예약 응대 프로세스를 IVR 자동화 체계로 전환하여 24시간 실시간 예약 수락/거절 시나리오를 적용하면, 예약 누락 방지와 운영 인건비 감축이 가능할 것으로 가설 설정하였습니다.',
-        experiment: '시간대별 예약 성공률 및 결제 데이터 분석, 예약 담당자의 기여도 분석, IVR 자동 수락/거절 시나리오 및 예외 케이스 처리 설계, 파일럿 테스트 및 사용자 인터뷰 검증.',
-        result: '미운영 시간대 예약 성공률이 50%에서 70%로 개선되었으며, 인건비 연 약 2억 원을 월 200만 원대의 IVR 운영비로 최적화하고 24시간 예약 커버리지를 확보했습니다.',
-        contribution: '데이터 분석 기반의 가설 검증 및 IVR 전환 기획 리딩, 시나리오 설계, 개발 및 외부 솔루션 협업 적용, 최종 대시보드 구축을 통한 효율성 모니터링을 달성했습니다.',
+        problem: '예약 담당자 미운영 시간대에는 전화 예약 대응이 불가하여, 고객 예약 실패·매출 손실·운영 리소스 비효율이 동시에 발생하는 문제 확인',
+        hypothesis: 'IVR 기반 예약 프로세스를 도입하면 24시간 예약 커버가 가능해지고, 운영 비용 절감과 함께 예약 성공률 및 플랫폼 운영 효율이 개선될 것이라는 가설 설정',
+        experiment: '미운영 시간대 예약 성공률 분석, IVR 통화 방식에 대한 사용자 거부감 사전 조사, 도입 전·후 예약 성과 및 운영 비용 비교를 통한 효과 검증',
+        result: '미운영 시간대 예약 성공률 50% → 70%로 개선, 인건비 연 약 2억 원 → 월 200만 원 수준(IVR 통화료)으로 운영 비용 대폭 절감',
+        contribution: '예약 성공률·운영 시간대별 성과 지표 대시보드 구축, 예약 담당자 운영 기여도 및 결제 영향 분석, IVR 도입 효과에 대한 비용·효율성 검증을 통해 운영 자동화 체계 구축에 기여',
         detailParagraphs: [
-          '기존에는 새벽 등 오프시간에 프리랜서 예약 담당자를 고용해 대응했으나, 잦은 이탈 리스크와 높은 비용이 수반되었습니다. 이에 고객 및 매장 거래 데이터를 면밀히 추출하여 거래액 대비 인력 비용의 효율성을 진단했고, 사람 중심의 구조를 자동화 구조로 완전히 전환하는 계획을 수립했습니다.',
-          '매장의 예외 케이스(잘못된 예약 수락 등으로 인한 오작동 리스크)를 방지하기 위한 이중 확인 프로세스를 솔루션 연동 시나리오에 추가 설계했고, 점진적인 주 단위 릴리즈 배포를 통해 충격을 예방했습니다.',
-          '외부 솔루션사의 일시 장애 상황 발생 시에도 운영팀이 즉시 매뉴얼 대응할 수 있도록 대체 프로세스를 구축해 예약 유실 리스크를 차단했습니다. 결과적으로 자동화를 통해 99% 수준의 예약 리소스 효율 향상과 동시에 비즈니스 볼륨 확대를 입증해냈습니다.'
+          "기존 프리랜서 형태의 '예약 담당자' 전화 응대 구조는 새벽 시간대 예약 실패, 근무자 이탈 리스크, 높은 비용 부담 등 플랫폼 운영의 큰 비효율을 낳고 있었습니다. 실제 데이터를 분석한 결과 담당자들의 거래액 기여도는 1% 미만이었던 반면, 미운영 시간대 예약의 약 50%가 실패하고 있음을 확인하여 IVR 기반의 24시간 자동화 프로세스로의 전환 가설을 수립했습니다.",
+          "매장 이탈과 매출 하락에 대한 내부 우려를 정량적 분석과 파일럿 테스트 인터뷰를 통해 설득하며 해소하였습니다. 배포 시에는 리스크를 예방하기 위해 주 단위 점진적 배포 전략을 적용하였고, '수락/거절' 시나리오 설계 중 발견한 잘못된 예약 확정 리스크(오작동 복구 불가)를 보완하기 위해 이중 확인 절차를 추가하여 시나리오의 안정성을 확보했습니다.",
+          "도입 과정에서 발생한 일부 매장 내 IVR 미동작 이슈를 해결하기 위해 내부 시스템 로그 점검, 매장 개별 환경 정보 수집 및 현장 방문 테스트를 병행하며 원인이 외부 솔루션사 서버 처리 과정에 있음을 특정하고 함께 안정화했습니다. 또한 솔루션사 작업 중단으로 인한 일시적인 공백 상황에서도 운영팀의 대체 대응 체계를 마련해 예약 누락을 성공적으로 방어했습니다.",
+          "최종 배포 및 안정화 결과, 미운영 시간대 예약 성공률이 50%에서 70%로 향상되었고, 연 2억 원의 인건비를 월 200만 원 수준으로 최적화하여 99%의 비용을 절감했습니다. 프로젝트를 통해 기획부터 시나리오 설계, 개발 협업, 파일럿 검증 및 성과 분석까지 End-to-End로 리딩하며, 예외 상황에 대처하고 비즈니스 운영 구조를 자동화로 끝까지 완결시키는 역량을 키웠습니다."
         ]
       }
     },
     {
       id: 'pay-project',
       corp: '중고나라',
-      period: '2023.04 ~ 2023.12',
-      title: '중고나라 페이 결제액 2.4배 성장 프로젝트',
+      period: '23.04.07 ~ 23.12.31',
+      title: '중고나라 페이 결제 2배 증가',
       summaryBullets: [
         '중고나라 페이 결제액 2.4배 상승 및 2023년 최고 결제액 달성',
         '결제 퍼널(탐색–채팅–결제) 분석 기반 \'카페 채팅 앱 유도\' 기능 기획',
         '상위 판/구매자 세그먼트 관리 및 수수료 감면 이벤트 성과 분석'
       ],
       modalData: {
-        problem: '결제액 성장 정체 문제를 진단한 결과, 채팅 구간에서의 높은 유저 이탈과 상위 핵심 거래 고객에 대한 관리 및 타겟 기획 부재가 주요 원인으로 식별되었습니다.',
-        hypothesis: '이탈이 발생하는 채팅 구간에 판매자 앱 유입용 알림/댓글 자동화를 적용하고, 고액 거래자 맞춤형 정산 혜택 제공 및 이벤트 정밀 타겟팅을 적용하면 결제액이 회복될 것이라 가설을 설정했습니다.',
-        experiment: 'SQL 기반 결제 퍼널 및 유저 로그 데이터 심층 분석, 이탈 구간에 맞춰 네이버 카페 내 자동 댓글/채팅 리다이렉션 기능 협업 구현, VIP 그룹 추출 및 이벤트 성과 코호트 측정.',
-        result: '연간 결제액이 2.4배 크게 늘었으며, 핵심 타겟 VIP 그룹 거래액이 약 20% 상승하여 당해 팀의 결제액 KPI를 완전 초과 달성했습니다.',
-        contribution: 'SQL 데이터 추출 및 대시보드 구축, 결제 퍼널 병목 규명 및 앱 리다이렉션 기획, VIP 고객 타겟 관리 및 수수료 감면 이벤트 정량 성과 기여 타당성 분석 주도.',
+        problem: '결제액 저조 문제 해결을 위해 사용자 행동 데이터를 분석하여 결제 퍼널의 이탈률 개선 필요 확인',
+        hypothesis: '결제 퍼널 중 이탈률이 발생하는 구간을 개선하고, 세그먼트 분석 및 이벤트 실행이 결제액 상승에 기여할 것이라는 가설 설정',
+        experiment: 'SQL을 활용한 결제 퍼널 분석 및 이탈률 개선, 세그먼트 분석 및 타겟팅 이벤트 실행',
+        result: '결제액 2.4배 상승, 2023년 최고 결제액 달성',
+        contribution: '대시보드 생성, 퍼널 분석, 이탈률 개선, 이벤트 기획 및 타당성 분석, 상위 결제자 관리',
         detailParagraphs: [
-          '중고나라 페이 활성화를 목표로 하는 전사 목적 조직의 일원으로서, 결제 데이터 전반의 퍼널 분석을 담당했습니다. 데이터 상에서 채팅 단계로 넘어간 뒤 판매자의 확인 지연 및 이탈 비율이 높다는 점에 주목했습니다.',
-          '이를 위해 네이버 카페와 앱의 상품 데이터 싱크 환경에서, 구매자가 채팅을 걸었을 때 판매자의 해당 네이버 카페 글에 자동으로 알림 댓글을 작성해 앱 실행을 유도하는 트리거 로직을 PO 및 개발 조직과 조율해 기획 반영했습니다.',
-          '이와 동시에 대량 거래 유저들의 세그먼트를 DB에서 주기적으로 모니터링하여 VIP 맞춤 혜택과 수수료 감면 이벤트를 주 단위 효율 분석 기반으로 기획/조정하여, 매출의 정체를 해결하고 견고한 성장을 도출해냈습니다.'
+          "2023년 중고나라 페이 결제액 상승 목표 달성을 위해 결제제휴사업팀이 신설되었습니다. 저는 본 목적 조직 내에서 데이터 분석, 대시보드 구축 및 데일리 푸시 효율 분석, 타겟 고객 분류 등 운영 기획 및 데이터 분석 업무를 주도했습니다.",
+          "결제 퍼널 데이터를 세분화하여 분석한 결과, 판매자가 앱 내 크롤링 된 카페 상품에 대한 채팅 응답을 제때 확인하지 않아 채팅 구간에서 가장 많은 이탈이 발생함을 발견했습니다. 이를 해결하고자 채팅 발생 시 판매자의 카페 게시글에 자동 댓글을 남겨 앱 유입을 유도하는 '카페 채팅 앱 유도' 기능을 구현하여 이탈을 최소화했습니다.",
+          "거래 기여도가 높은 핵심 거래자 상위 10%(약 300명)를 SQL로 추출하여 밀착 관리(빠른 정산, 리워드 혜택)를 적용해 해당 그룹의 거래액을 20% 상승시켰습니다. 또한 결제 효율을 분석하여 결제가 가장 저조한 시간대를 타겟으로 수수료를 감면해주는 '중요일' 이벤트를 기획하여 결제 감소를 방지하고 복귀를 이끌어냈습니다.",
+          "23년 12월 이벤트 기준 역대 최고 결제액을 달성했으며, 연간 결제액 2.4배 성장을 견인하며 팀 KPI를 달성했습니다. SQL 분석을 통한 퍼널 개선, VIP 타겟 세그먼트 관리, 타당성 분석에 기반한 이벤트 기획 등 데이터 기반 비즈니스 운영 프로세스를 리딩한 경험입니다."
         ]
       }
     },
     {
       id: 'sync-project',
       corp: '중고나라',
-      period: '2022.03 ~ 2022.12',
-      title: '중고나라 카페–앱 연동 프로젝트',
+      period: '22.03.15 ~ 22.12.31',
+      title: '중고나라 카페-앱 연동',
       summaryBullets: [
         '연동 후 앱 신규 등록 회원(NRU) 1.6배 증가',
         '전체 앱 내 신규 등록 상품 수 2배 증가',
         '연동 회원 상품 수가 전체 앱 상품의 약 60%를 차지하는 성과 도출'
       ],
       modalData: {
-        problem: '중고나라 앱의 MAU 및 상품 거래 활성화를 위해, 1,900만 명에 이르는 거대 카페 유저 풀을 앱으로 효율적으로 전송하고 상품 등록 지표를 부스팅해야 했습니다.',
-        hypothesis: '카페 ↔ 앱 연동 신청 과정을 간소화/자동화하고, 가입 부스팅 리워드 및 상품 등록 단계별 보상 게임화 요소를 도입하면 상품 공급 파이프라인이 앱 내로 안착할 것으로 기대했습니다.',
-        experiment: '유저 LTV 분석 및 회원 매칭 지표 측정, 수기 신청 방식의 한계를 자동 시스템 연동 페이지 기획으로 전환, 스타벅스 기프티콘 및 롤링 마일리지 보상 프로모션 모니터링.',
-        result: '연동 회원 수 1.6배, 상품 등록량 2배 증가를 달성했으며 연동 회원의 활동 지표가 기존 앱 순수 가입자 대비 20% 이상 높음을 관찰했습니다.',
-        contribution: '네이버 카페-앱 연동 신청 자동화 프로세스 기획, 연동 이벤트 설계 및 보상 게임화 기획, 연동 이후의 회원 활동성 분석 리포트 작성을 주도했습니다.',
+        problem: '중고나라 앱 활성화 및 MAU 증대를 위해 회원수 및 상품 등록수 증가 필요성 확인',
+        hypothesis: '네이버 카페(중고나라)와 중고나라 앱의 연동을 통해, 기존 카페 회원의 앱 유입 증가 및 상품 등록 활성화가 가능할 것이라는 가설 설정',
+        experiment: 'LTV 분석, 회원 활동 지표 추출, 카페-앱 연동 기능 개발, 회원수 및 상품 등록수 모니터링을 통해 효율성 검증',
+        result: '회원수 1.6배 증가, 상품 등록수 2배 증가, LTV 상승 및 회원 활동 지표 개선',
+        contribution: '카페to앱 연동 기획, 데이터 분석 및 수치 증대, 연동 신청 기능 자동화, 이벤트 기획&실행',
         detailParagraphs: [
-          '카페 가입자가 원클릭으로 중고나라 앱 아이디를 생성/연동하고 상품을 연동 전송할 수 있는 시스템을 구축하기 위해 프로세스 기획에 착수했습니다. 기존의 불투명한 수동 승인 형식을 완전 자동 시스템으로 개선했습니다.',
-          '연동 전환율을 올리기 위해 초기에 커피 리워드를 연동 신청 완료자에게 실시간 발송하는 이벤트를 기획하여, 일평균 두 자릿수 가입에 머물던 수치를 일 900명 이상으로 스케일업했습니다.',
-          '나아가 연동 가입자들이 단순 이탈하지 않도록 상품 등록 1회, 3회, 5회 등 단계적으로 게이미피케이션 적립금을 지급하는 부스터 프로모션을 추가로 설계하여 전체 앱 등록 상품의 과반 이상이 네이버 카페 연동을 통해 지속 생산되는 강력한 순환 구조를 구축했습니다.'
+          "1,900만 회원 규모의 네이버 카페 인프라를 활용해 저비용 고효율 of 앱 MAU 성장을 기획했습니다. 기존의 비효율적인 수기 연동 프로세스를 개선하고자 연동 신청 페이지 자동화를 기획해 도입하고, 시스템 구축 전 구글 폼을 이용한 수기 모객 효율도 프로세스 최적화를 통해 리스크를 차단했습니다.",
+          "연동 모객을 부스팅하기 위해 사전 사용자 반응 조사를 실시하여 '스타벅스 커피 리워드' 이벤트를 기획했습니다. 이를 통해 일평균 70명에 불과하던 가입 연동 수가 일 900명대로 급증하였고, 연동된 회원의 활동 지표가 일반 회원 대비 20% 높음을 LTV 및 이탈률 분석으로 검증하여 비즈니스 가치를 입증했습니다.",
+          "유입 유저의 잔존률과 상품 등록 수를 증대시키기 위해 단계적 마일리지 이벤트를 설계했습니다. 단순 적립에서 '구간별 마일리지 획득 참여형 게임 구조'로 전환 기획한 결과, 연동 회원의 일평균 상품 등록 수가 5,500건에서 10,400건으로 2배 증가하였고 앱 전체 등록 상품의 60%를 연동 회원이 차지하며 플랫폼 내 핵심 상품 공급 채널로 안착시켰습니다.",
+          "결과적으로 회원수 1.6배 및 상품 등록수 2배 증가를 달성했습니다. 플랫폼 간의 유기적인 연동 전략을 수립하고, 정량적인 성과 측정과 게임화 설계를 결합하여 서비스의 유기적 성장을 입증해 낸 비즈니스 운영 기획 경험입니다."
         ]
       }
     }
@@ -282,17 +280,14 @@ export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
-  // Handle scroll events for active section and ScrollToTop button visibility
   useEffect(() => {
     const handleScroll = () => {
-      // Toggle ScrollToTop button visibility
       if (window.scrollY > 300) {
         setShowScrollTop(true);
       } else {
         setShowScrollTop(false);
       }
 
-      // Track active section based on position
       const scrollPosition = window.scrollY + 120;
       const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'education'];
       
@@ -313,7 +308,6 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // IntersectionObserver for elements fade-in
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -325,7 +319,7 @@ export default function App() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          obs.unobserve(entry.target); // Animates only once
+          obs.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -387,7 +381,6 @@ export default function App() {
             </ul>
           </nav>
           <div className="header-actions">
-            {/* The resume path matches the requested file name */}
             <a 
               href="/하윤택_이력서_스페이스브이.pdf" 
               download="하윤택_이력서_스페이스브이.pdf" 
@@ -672,7 +665,7 @@ export default function App() {
   );
 }
 
-// Subcomponent: Project Details Modal
+// Subcomponent: Redesigned Project Details Modal matching Space V Mockup
 function ProjectModal({ project, onClose }) {
   const { corp, period, title, modalData } = project;
 
@@ -682,7 +675,7 @@ function ProjectModal({ project, onClose }) {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden'; // Lock scroll on body
+    document.body.style.overflow = 'hidden'; // Lock scroll
     
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
@@ -710,44 +703,58 @@ function ProjectModal({ project, onClose }) {
           </div>
           <h2 className="modal-title">{title}</h2>
         </div>
+        
         <div className="modal-content-scrollable">
           <div className="modal-content-wrapper">
+            {/* Pipeline Section (5 horizontal colored cards) */}
             <div className="modal-pipeline-section">
               <h3 className="modal-section-title">문제 정의 및 실행 결과</h3>
               <div className="modal-pipeline-grid">
+                
+                {/* 1. Problem */}
                 <div className="modal-card problem">
                   <span className="card-badge">Problem</span>
                   <h4 className="card-title">문제 정의</h4>
                   <p className="card-text">{modalData.problem}</p>
                 </div>
+                
+                {/* 2. Hypothesis */}
                 <div className="modal-card hypothesis">
                   <span className="card-badge">Hypothesis</span>
                   <h4 className="card-title">가설 설정</h4>
                   <p className="card-text">{modalData.hypothesis}</p>
                 </div>
+                
+                {/* 3. Experiment */}
                 <div className="modal-card experiment">
                   <span className="card-badge">Experiment</span>
-                  <h4 className="card-title">실험 및 검증</h4>
+                  <h4 className="card-title">실험 설계 및 검증</h4>
                   <p className="card-text">{modalData.experiment}</p>
                 </div>
+                
+                {/* 4. Result */}
                 <div className="modal-card result">
                   <span className="card-badge">Result</span>
-                  <h4 className="card-title">실행 결과</h4>
+                  <h4 className="card-title">결과</h4>
                   <p className="card-text">{modalData.result}</p>
                 </div>
+                
+                {/* 5. Contribution */}
                 <div className="modal-card contribution">
                   <span className="card-badge">Contribution</span>
-                  <h4 className="card-title">핵심 기여 내용</h4>
+                  <h4 className="card-title">기여 내용</h4>
                   <p className="card-text">{modalData.contribution}</p>
                 </div>
+                
               </div>
             </div>
 
+            {/* Detailed Description Section (Grey unified box) */}
             <div className="modal-detail-section">
-              <h3 className="modal-section-title">상세 실행 과정</h3>
-              <div className="modal-detail-body">
+              <h3 className="modal-section-title">상세 내용</h3>
+              <div className="modal-detail-card">
                 {modalData.detailParagraphs.map((para, idx) => (
-                  <p key={idx} className="detail-paragraph">{para}</p>
+                  <p key={idx}>{para}</p>
                 ))}
               </div>
             </div>
