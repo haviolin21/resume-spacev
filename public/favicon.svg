@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-  <!-- Modern house silhouette representing Space V architecture -->
-  <polygon points="50,12 10,48 22,48 22,88 78,88 78,48 90,48" fill="#000000"/>
-  <!-- Central custom 'H' branding letter in white -->
-  <text x="50" y="72" font-family="'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="34" font-weight="900" fill="#ffffff" text-anchor="middle">H</text>
+  <!-- Edge-to-edge stretched house geometry for maximum browser tab icon coverage -->
+  <polygon points="50,2 2,46 14,46 14,98 86,98 86,46 98,46" fill="#000000"/>
+  <!-- Bold maximized letter 'H' -->
+  <text x="50" y="78" font-family="'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif" font-size="44" font-weight="900" fill="#ffffff" text-anchor="middle">H</text>
 </svg>
