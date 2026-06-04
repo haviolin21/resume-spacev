@@ -382,8 +382,8 @@ export default function App() {
           </nav>
           <div className="header-actions">
             <a 
-              href="/하윤택_이력서_스페이스브이.pdf" 
-              download="하윤택_이력서_스페이스브이.pdf" 
+              href="/yuntaek_resume.pdf" 
+              download="yuntaek_resume.pdf" 
               className="btn btn-primary btn-sm"
               title="하윤택 이력서 다운로드"
             >
@@ -620,8 +620,8 @@ export default function App() {
                 <span>이메일 보내기</span>
               </a>
               <a 
-                href="/하윤택_이력서_스페이스브이.pdf" 
-                download="하윤택_이력서_스페이스브이.pdf" 
+                href="/yuntaek_resume.pdf" 
+                download="yuntaek_resume.pdf" 
                 className="btn btn-outline-white"
               >
                 <Download size={18} />
