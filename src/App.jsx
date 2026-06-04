@@ -581,7 +581,20 @@ export default function App() {
             <h2 className="section-title">주요 프로젝트</h2>
             <div className="project-grid">
               {resumeData.projects.map((project) => (
-                <div key={project.id} className="project-card">
+                <div 
+                  key={project.id} 
+                  className="project-card"
+                  onClick={() => openProjectModal(project)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      openProjectModal(project);
+                    }
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`${project.title} 프로젝트 상세 보기 (클릭하여 상세 보기)`}
+                >
                   <div className="project-card-header">
                     <div className="project-corp-period">
                       <span className="project-corp">{project.corp}</span>
@@ -602,14 +615,10 @@ export default function App() {
                     </ul>
                   </div>
                   <div className="project-card-footer">
-                    <button 
-                      onClick={() => openProjectModal(project)}
-                      className="btn-detail-link"
-                      aria-label={`${project.title} 프로젝트 상세 보기`}
-                    >
+                    <div className="btn-detail-link">
                       <span>자세히 보기</span>
                       <span className="arrow">➔</span>
-                    </button>
+                    </div>
                   </div>
                 </div>
               ))}
