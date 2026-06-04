@@ -204,6 +204,7 @@ const resumeData = {
       corp: '김캐디',
       period: '25.07.29 ~ 25.09.21',
       title: '예약 담당자 IVR 대체',
+      kpi: '연간 약 2억 원 비용 절감',
       summaryBullets: [
         '미운영 시간대 예약 성공률 50% → 70% 개선',
         '연간 약 2억 원 규모 인건비를 월 200만 원 수준의 IVR 운영비로 대체',
@@ -228,6 +229,7 @@ const resumeData = {
       corp: '중고나라',
       period: '23.04.07 ~ 23.12.31',
       title: '중고나라 페이 결제 2배 증가',
+      kpi: '결제액 2.4배 성장',
       summaryBullets: [
         '중고나라 페이 결제액 2.4배 상승 및 2023년 최고 결제액 달성',
         '결제 퍼널(탐색–채팅–결제) 분석 기반 \'카페 채팅 앱 유도\' 기능 기획',
@@ -252,6 +254,7 @@ const resumeData = {
       corp: '중고나라',
       period: '22.03.15 ~ 22.12.31',
       title: '중고나라 카페-앱 연동',
+      kpi: '회원 1.6배 / 상품 등록 2배 증가',
       summaryBullets: [
         '연동 후 앱 신규 등록 회원(NRU) 1.6배 증가',
         '전체 앱 내 신규 등록 상품 수 2배 증가',
@@ -277,17 +280,28 @@ const resumeData = {
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Toggle ScrollToTop button visibility
       if (window.scrollY > 300) {
         setShowScrollTop(true);
       } else {
         setShowScrollTop(false);
       }
 
+      // Calculate scroll progress percentage
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const progress = (window.scrollY / totalHeight) * 100;
+        setScrollProgress(progress);
+      }
+
+      // Track active section based on position
       const scrollPosition = window.scrollY + 120;
       const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'education'];
       
@@ -338,11 +352,17 @@ export default function App() {
   const openProjectModal = (project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
+    // Micro delay to trigger soft scale transition
+    setTimeout(() => setModalActive(true), 20);
   };
 
   const closeProjectModal = () => {
-    setIsModalOpen(false);
-    setSelectedProject(null);
+    setModalActive(false);
+    // Wait for the transition to finish before unmounting the modal component
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setSelectedProject(null);
+    }, 280);
   };
 
   const scrollToTop = () => {
@@ -391,6 +411,10 @@ export default function App() {
               <span>이력서 다운로드</span>
             </a>
           </div>
+        </div>
+        {/* Scroll Progress Bar Element */}
+        <div className="scroll-progress-container">
+          <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
         </div>
       </header>
 
@@ -564,6 +588,11 @@ export default function App() {
                       <span className="project-period">{project.period}</span>
                     </div>
                     <h3 className="project-title">{project.title}</h3>
+                    {/* Big Number KPI Highlight Emblem */}
+                    <div className="project-kpi-highlight">
+                      <span className="kpi-label">핵심 성과</span>
+                      <span className="kpi-value">{project.kpi}</span>
+                    </div>
                   </div>
                   <div className="project-card-body">
                     <ul className="project-summary-list">
@@ -649,9 +678,13 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Project Detail Modal */}
+      {/* Project Detail Modal with soft transition logic */}
       {isModalOpen && selectedProject && (
-        <ProjectModal project={selectedProject} onClose={closeProjectModal} />
+        <ProjectModal 
+          project={selectedProject} 
+          isActive={modalActive} 
+          onClose={closeProjectModal} 
+        />
       )}
 
       {/* Scroll to Top */}
@@ -664,25 +697,23 @@ export default function App() {
   );
 }
 
-// Subcomponent: Redesigned Project Details Modal matching Space V Mockup
-function ProjectModal({ project, onClose }) {
+// Subcomponent: Project Details Modal with animation class mapping
+function ProjectModal({ project, isActive, onClose }) {
   const { corp, period, title, modalData } = project;
 
-  // ESC key listener to close modal
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden'; // Lock scroll
+    document.body.style.overflow = 'hidden';
     
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset'; // Unlock scroll
+      document.body.style.overflow = 'unset';
     };
   }, [onClose]);
 
-  // Close modal if background is clicked
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains('modal-overlay')) {
       onClose();
@@ -690,7 +721,7 @@ function ProjectModal({ project, onClose }) {
   };
 
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick}>
+    <div className={`modal-overlay ${isActive ? 'active' : ''}`} onClick={handleOverlayClick}>
       <div className="modal-container">
         <button className="modal-close-btn" onClick={onClose} aria-label="모달 닫기">
           <X size={20} />
@@ -705,40 +736,34 @@ function ProjectModal({ project, onClose }) {
         
         <div className="modal-content-scrollable">
           <div className="modal-content-wrapper">
-            {/* Pipeline Section (5 horizontal colored cards) */}
             <div className="modal-pipeline-section">
               <h3 className="modal-section-title">문제 정의 및 실행 결과</h3>
               <div className="modal-pipeline-grid">
                 
-                {/* 1. Problem */}
                 <div className="modal-card problem">
                   <span className="card-badge">Problem</span>
                   <h4 className="card-title">문제 정의</h4>
                   <p className="card-text">{modalData.problem}</p>
                 </div>
                 
-                {/* 2. Hypothesis */}
                 <div className="modal-card hypothesis">
                   <span className="card-badge">Hypothesis</span>
                   <h4 className="card-title">가설 설정</h4>
                   <p className="card-text">{modalData.hypothesis}</p>
                 </div>
                 
-                {/* 3. Experiment */}
                 <div className="modal-card experiment">
                   <span className="card-badge">Experiment</span>
                   <h4 className="card-title">실험 설계 및 검증</h4>
                   <p className="card-text">{modalData.experiment}</p>
                 </div>
                 
-                {/* 4. Result */}
                 <div className="modal-card result">
                   <span className="card-badge">Result</span>
                   <h4 className="card-title">결과</h4>
                   <p className="card-text">{modalData.result}</p>
                 </div>
                 
-                {/* 5. Contribution */}
                 <div className="modal-card contribution">
                   <span className="card-badge">Contribution</span>
                   <h4 className="card-title">기여 내용</h4>
@@ -748,7 +773,6 @@ function ProjectModal({ project, onClose }) {
               </div>
             </div>
 
-            {/* Detailed Description Section (Grey unified box) */}
             <div className="modal-detail-section">
               <h3 className="modal-section-title">상세 내용</h3>
               <div className="modal-detail-card">
